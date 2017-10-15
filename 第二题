@@ -1,0 +1,60 @@
+/**
+* @Title: Student.java
+* @Package 
+* @Description: TODO(用一句话描述该文件做什么)
+* @date 2017年10月15日 下午6:43:34
+* @author:软工1502班1508010221苟同飞
+*/
+
+/**
+* @ClassName: Student
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2017年10月15日 下午6:43:34
+* @author:软工1502班1508010221苟同飞
+*/
+
+public class Student {
+	static class student{
+		String name;
+		int age;
+		String education;
+		student(String myname,int myage,String myeducation){
+			this.name=myname;
+			this.age=myage;
+			this.education=myeducation;
+		}
+		void show(){
+			System.out.println("姓名:"+name+"\t年龄:"+age+"\t学历:"+education);
+		}
+	}/*学生类*/
+	static class Undergraduate extends student{
+		String specialty;
+		public Undergraduate(String myname,int myage,String myeducation,String myspecialty){
+			super(myname,myage,myeducation);
+			this.specialty=myspecialty;
+		}
+		void show(){
+			super.show();
+			System.out.println("专业:"+specialty);
+		}
+	}/*从学生类派生出来的本科生类*/
+	static class Graduate extends student{
+		String direction;
+		public Graduate(String myname,int myage,String myeducation,String mydirection){
+			super(myname,myage,myeducation);
+			this.direction=mydirection;
+		}/*从学生类派生出来的研究生类*/
+		void show(){
+			super.show();
+			System.out.println("研究方向:"+direction);
+		}
+	}
+	public static void main(String[] args){
+		student o1=new student("张三",18,"本科");
+		o1.show();
+		Undergraduate o2=new Undergraduate("李四", 19, "本科", "软件工程");
+		o2.show();
+		Graduate o3=new Graduate("王伟", 20, "研究生", "数据库");
+		o3.show();
+	}
+}
