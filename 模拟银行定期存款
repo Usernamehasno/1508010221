@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+/**
+* @Title: DepositAccount.java
+* @Package 
+* @Description: TODO(用一句话描述该文件做什么)
+* @date 2017年10月13日 下午8:53:55
+* @author:软工1502班1508010221苟同飞
+*/
+
+/**
+* @ClassName: DepositAccount
+* @Description: TODO(这里用一句话描述这个类的作用)
+* @date 2017年10月13日 下午8:53:55
+* @author:软工1502班1508010221苟同飞
+*/
+
+public class DepositAccount {
+		static class Deposit
+		{
+			private static final double interset= 0.023;
+			private String account,username;
+			private double balance;
+			Deposit(String acc,String name,double bal){
+				this.account=acc;
+				this.username=name;
+				this.balance=bal;
+			}
+			/*账户的构造函数*/
+			void open(){
+				System.out.println("开户成功");
+			}/*开户*/
+			void deposit(double m){
+				System.out.println("存款金额："+m);
+				balance+=m;
+				System.out.println("余额："+balance);
+			}/*存款*/
+			double query(){
+				System.out.println("查询");
+				return 0;
+			}/*查询*/
+
+			double Yaccrual(){
+				return(balance*interset);
+			}/*计算年利息*/
+			double Maccrual(){
+				return(balance*interset/12);
+			}/*计算月利息*/
+		}
+		 public static void main(String[] args)
+		 {
+			 Deposit saver = new Deposit("1234567890", "zhangsan", 5000);
+			 System.out.println("账 户："+saver.account);
+			 System.out.println("姓名："+saver.username);
+			 System.out.println("定存:"+saver.balance);
+			 System.out.println("年利息："+saver.Yaccrual());
+			 System.out.println("月利息："+saver.Maccrual());
+			 System.out.println("查询:"+saver.query());
+			 saver.open();
+			 saver.deposit(2000);
+		 }
+}
