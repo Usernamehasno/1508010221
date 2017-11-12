@@ -1,0 +1,79 @@
+//Student接口函数
+public interface StudentManageInterface {
+	public void setFee(double Fee);
+	public double getFee();
+}
+//teacher接口函数
+public interface TeacherManageInterface {
+	public void setPay(double Pay);
+	public double getPay();
+}
+//Graduate类
+public class Graduate implements StudentManageInterface,TeacherManageInterface {
+	public String name;	//姓名
+	public String sex;	//性别
+	public int age;		//年龄
+	public double fee;	//每学期学费
+	public double pay;	//月工资
+	
+	@Override
+	public void setPay(double Pay) {
+		this.pay=Pay;
+	}
+	
+	@Override
+	public double getPay() {
+		return this.pay;
+	}
+	
+	@Override
+	public void setFee(double Fee) {
+		this.fee=Fee;
+	}
+	
+	@Override
+	public double getFee() {
+		return this.fee;
+	}
+	public String getName(){
+		return name;
+		}
+	public void setName(String name){
+		this.name=name;
+	}	
+	public String getSex(){
+		return sex;
+		}
+	public void setSex(String sex){
+		this.sex=sex;
+	}
+	public int getAge(){
+		return age;
+	}
+	public void setAge(int age){
+		this.age=age;
+	}
+	Graduate(String name,double pay,double fee){
+		super();
+		this.name=name;
+		this.pay=pay;
+		this.fee=fee;
+		double sumpay;
+		double sumfee;
+		sumpay=this.pay*12;
+		sumfee=this.fee*2;
+		System.out.println("月工资"+sumpay);
+		System.out.println("总学费"+sumfee);
+		if((sumpay-sumfee)<2000){
+			System.out.println("需要贷款");
+		}else{
+			System.out.println("足够");
+		}
+	}
+}
+//text类
+public class Text {
+	public static void main(String[] args){
+		new Graduate("张三",2000,15000);
+	}
+}
