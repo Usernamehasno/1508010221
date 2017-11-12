@@ -1,0 +1,64 @@
+//接口函数
+public interface ComputeWeight {
+	public double computeweight();  //重量
+}
+//Computer类
+public class Computer implements ComputeWeight {
+	double weight;
+	Computer(double weight){
+		this.weight=weight;
+	}
+	@Override
+	public double computeweight() {
+		// 电脑重量
+		return weight;
+	}
+
+}
+//Television类
+public class Television implements ComputeWeight{
+	double weight;
+	Television(double weight){
+		this.weight=weight;
+	}
+	@Override
+	public double computeweight() {
+		// 电视机重量
+		return weight;
+	}
+
+}
+//WashMachine类
+public class WashMachine implements ComputeWeight {
+	double weight;
+	WashMachine(double weight){
+		this.weight=weight;
+	}
+	@Override
+	public double computeweight() {
+		// 电视机重量
+		return weight;
+	}
+
+}
+//Car类
+public class Car {
+	ComputeWeight[] goods;
+	double SumWeight=0;
+	Car(ComputeWeight[] goods){
+		this.goods=goods;
+	}
+}
+//Text类
+public class Text {
+	public static void main(String[] args){
+		ComputeWeight[] goods = new ComputeWeight[3];
+		goods[0]=new Television(10);
+		goods[1]=new Computer(20);
+		goods[2]=new WashMachine(30);
+		double SumWeight;
+		SumWeight=goods[0].computeweight()+goods[1].computeweight()+goods[2].computeweight();
+		System.out.println("所载货物总重为:"+SumWeight);
+	}
+}
+
